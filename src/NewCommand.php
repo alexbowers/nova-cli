@@ -36,11 +36,11 @@ class NewCommand extends Command
         $this->config_file = $this->config_path . '/config.json';
 
         $this->config = [
-            'vendor' => null,
-            'vendor_namespace' => null,
             'author_name' => null,
             'author_username' => null,
             'author_email' => null,
+            'vendor' => null,
+            'namespace_vendor' => null,
         ];
 
         if (!$filesystem->exists($this->config_path)) {
@@ -73,7 +73,7 @@ class NewCommand extends Command
                     case 'author_username':
                         $question = new Question("What is your username? [alexbowers]", "Alex Bowers");
                     break;
-                    case 'vendor_namespace':
+                    case 'namespace_vendor':
                         $question = new Question("What is your vendor namespace? [alexbowers]", "alexbowers");
                         $question->setNormalizer(function ($value) {
                             return str_replace(' ', '', $value);
@@ -95,7 +95,8 @@ class NewCommand extends Command
 
         $this->package = [
             'package_name' => null,
-            'package_namespace' => null,
+            'package_description' => null,
+            'namespace_tool_name' => null,
         ];
 
         foreach ($this->package as $package_option => $package_value) {
@@ -109,7 +110,14 @@ class NewCommand extends Command
                             return strtolower($value);
                         });
                         break;
-                    case 'package_namespace':
+                    case 'package_description':
+                        $question = new Question("What is your package description? [My package description]", "My package description");
+                        $question->setNormalizer(function ($value) {
+                            $value = str_replace(' ', '-', $value);
+                            return strtolower($value);
+                        });
+                        break;
+                    case 'namespace_tool_name':
                         $question = new Question("What is your package namespace? [MyNovaPackage]", "MyNovaPackage");
                         $question->setNormalizer(function ($value) {
                             return str_replace(' ', '', $value);
