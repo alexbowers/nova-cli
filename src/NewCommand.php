@@ -112,10 +112,6 @@ class NewCommand extends Command
                         break;
                     case 'package_description':
                         $question = new Question("What is your package description? [My package description]", "My package description");
-                        $question->setNormalizer(function ($value) {
-                            $value = str_replace(' ', '-', $value);
-                            return strtolower($value);
-                        });
                         break;
                     case 'namespace_tool_name':
                         $question = new Question("What is your package namespace? [MyNovaPackage]", "MyNovaPackage");
