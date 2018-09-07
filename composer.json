@@ -15,13 +15,9 @@
     },
     "require": {
         "symfony/console": "^4.1",
-        "symfony/filesystem": "^4.1",
-        "symfony/finder": "^4.1"
+        "symfony/filesystem": "^4.1"
     },
     "bin": [
         "novacli"
-    ],
-    "require-dev": {
-        "symfony/var-dumper": "^4.1"
-    }
+    ]
 }
