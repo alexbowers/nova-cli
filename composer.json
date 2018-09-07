@@ -1,0 +1,27 @@
+{
+    "name": "alexbowers/nova-cli",
+    "description": "A CLI tool for helping create nova tools",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Alex Bowers",
+            "email": "bowersbros@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "AlexBowers\\NovaCli\\": "src/"
+        }
+    },
+    "require": {
+        "symfony/console": "^4.1",
+        "symfony/filesystem": "^4.1",
+        "symfony/finder": "^4.1"
+    },
+    "bin": [
+        "novacli"
+    ],
+    "require-dev": {
+        "symfony/var-dumper": "^4.1"
+    }
+}
